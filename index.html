@@ -1,0 +1,308 @@
+<html>
+<header>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+</header>
+
+<body>
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-2">
+                <table id="wizard_stats" class="table table-bordered table-sm table-responsive">
+                    <thead>
+                        <tr>
+                            <th class="text-center"></th>
+                            <th class="text-center">Fire</th>
+                            <th class="text-center">Ice</th>
+                            <th class="text-center">Storm</th>
+                            <th class="text-center">Myth</th>
+                            <th class="text-center">Life</th>
+                            <th class="text-center">Death</th>
+                            <th class="text-center">Balance</th>
+                            <th class="text-center">Shadow</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Percentage(%)</td>
+                            <td><input type="number" class="form-control" id="fire_percentage_boost" value="0"></td>
+                            <td><input type="number" class="form-control" id="ice_percentage_boost" value="0"></td>
+                            <td><input type="number" class="form-control" id="storm_percentage_boost" value="0"></td>
+                            <td><input type="number" class="form-control" id="myth_percentage_boost" value="0"></td>
+                            <td><input type="number" class="form-control" id="life_percentage_boost" value="0"></td>
+                            <td><input type="number" class="form-control" id="death_percentage_boost" value="0"></td>
+                            <td><input type="number" class="form-control" id="balance_percentage_boost" value="0"></td>
+                            <td><input type="number" class="form-control" id="shadow_percentage_boost" value="0"></td>
+                        </tr>
+                        <tr>
+                            <td>Flat Damage(+)</td>
+                            <td><input type="number" class="form-control" id="fire_flat_boost" value="0"></td>
+                            <td><input type="number" class="form-control" id="ice_flat_boost" value="0"></td>
+                            <td><input type="number" class="form-control" id="storm_flat_boost" value="0"></td>
+                            <td><input type="number" class="form-control" id="myth_flat_boost" value="0"></td>
+                            <td><input type="number" class="form-control" id="life_flat_boost" value="0"></td>
+                            <td><input type="number" class="form-control" id="death_flat_boost" value="0"></td>
+                            <td><input type="number" class="form-control" id="balance_flat_boost" value="0"></td>
+                            <td><input type="number" class="form-control" id="shadow_flat_boost" value="0"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                <table id="table-normal" class="table table-bordered">
+                    <tr>
+                        <td>Card School Type</td>
+                        <td>
+                            <select id="card_type_selector" class="browser-default custom-select">
+                                <!-- <option selected>Storm</option> -->
+                                <option id="select_fire" value="fire">Fire</option>
+                                <option id="select_ice" value="ice">Ice</option>
+                                <option id="select_storm" value="storm">Storm</option>
+                                <option id="select_myth" value="myth">Myth</option>
+                                <option id="select_life" value="life">Life</option>
+                                <option id="select_death" value="death">Death</option>
+                                <option id="select_balance" value="balance">Balance</option>
+                                <option id="select_shadow" value="shadow">Shadow</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Card Damage Min</td>
+                        <td><input type="number" id="card_damage_min" value="0" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <td>Card Damage Max</td>
+                        <td><input type="number" id="card_damage_max" value="0" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <td>Global Aura(%)</td>
+                        <td><input type="number" id="global_aura" value="0" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <td>Personal Aura(%)</td>
+                        <td><input type="number" id="aura_damage" value="0" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <td>Blades(%)</td>
+                        <td><input type="number" id="blade_boost" value="0" class="form-control">
+                            <button class="btn btn-primary form-control" onclick="add_blades()" id="blade_adder">Add Blade</button>
+                            <button class="btn btn-secondary form-control" onclick="removeBlades()" id="blade_remover">Remove All Blades</button>
+                            <ul id="blades_list" class="list-group">
+                                <!-- <li class="list-group-item">Cras justo odio</li>
+                                <li class="list-group-item">Dapibus ac facilisis in</li>
+                                <li class="list-group-item">Morbi leo risus</li>
+                                <li class="list-group-item">Porta ac consectetur ac</li>
+                                <li class="list-group-item">Vestibulum at eros</li> -->
+                            </ul>
+                    <tr>
+                    </tr>
+                    </td>
+
+                    </tr>
+                    <tr>
+                        <td>Traps(%)</td>
+                        <td><input type="number" id="trap_boost" value="0" class="form-control">
+                            <button class="btn btn-primary form-control" onclick="add_traps()" id="trap_adder">Add Trap</button>
+                            <button class="btn btn-secondary form-control" onclick="removeTraps()" id="trap_remover">Remove All Traps</button>
+                            <ul id="traps_list" class="list-group">
+                                <!-- <li class="list-group-item">Cras justo odio</li>
+                                <li class="list-group-item">Dapibus ac facilisis in</li>
+                                <li class="list-group-item">Morbi leo risus</li>
+                                <li class="list-group-item">Porta ac consectetur ac</li>
+                                <li class="list-group-item">Vestibulum at eros</li> -->
+                            </ul>
+                    </tr>
+                    <tr>
+                        </td>
+                        <td>Minimum Damage</td>
+                        <td><input type="text" id="min_damage" value="0" class="form-control" readonly></td>
+                    </tr>
+                    <tr>
+                        <td>Maximum Damage</td>
+                        <td><input type="text" id="max_damage" value="0" class="form-control" readonly></td>
+                    </tr>
+                </table>
+                <div class="form-check-inline">
+                    <button class="btn btn-primary" onclick="calculateDamage()">Calculate Damage</button>
+                    <!-- <button class="btn btn-danger" onclick="resetForm()">Test</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        var blade_counter = 0;
+        var trap_counter = 0;
+        var blades_id = [];
+        var traps_id = [];
+        var blades = [];
+        var traps = [];
+        var school_boost = "";
+        var school_flat = "";
+
+        // function showBasic() {
+        //     var x = document.getElementById("generic_table");
+        //     if (x.style.display === "none") {
+        //         x.style.display = "block";
+        //     } else {
+        //         x.style.display = "none";
+        //     }
+        // }
+        function select_school_boost() {
+            switch (document.getElementById("card_type_selector").value) {
+                case "fire":
+                    school_boost = (document.getElementById("fire_percentage_boost").value) / 100;
+                    school_boost += 1;
+                    school_flat = document.getElementById("fire_flat_boost").value;
+                    break;
+                case "storm":
+                    school_boost = (document.getElementById("storm_percentage_boost").value) / 100;
+                    school_boost += 1;
+                    school_flat = document.getElementById("storm_flat_boost").value;
+                    break;
+                case "ice":
+                    school_boost = (document.getElementById("ice_percentage_boost").value) / 100;
+                    school_boost += 1;
+                    school_flat = document.getElementById("ice_flat_boost").value;
+                    break;
+                case "death":
+                    school_boost = (document.getElementById("death_percentage_boost").value) / 100;
+                    school_boost += 1;
+                    school_flat = document.getElementById("death_flat_boost").value;
+                    break;
+                case "myth":
+                    school_boost = (document.getElementById("myth_percentage_boost").value) / 100;
+                    school_boost += 1;
+                    school_flat = document.getElementById("myth_flat_boost").value;
+                    break;
+                case "balance":
+                    school_boost = (document.getElementById("balance_percentage_boost").value) / 100;
+                    school_boost += 1;
+                    school_flat = document.getElementById("balance_flat_boost").value;
+                    break;
+                case "life":
+                    school_boost = (document.getElementById("life_percentage_boost").value) / 100;
+                    school_boost += 1;
+                    school_flat = document.getElementById("life_flat_boost").value;
+                    break;
+                case "shadow":
+                    school_boost = (document.getElementById("shadow_percentage_boost").value) / 100;
+                    school_boost += 1;
+                    school_flat = document.getElementById("shadow_flat_boost").value;
+                    break;
+            }
+        }
+        function add_blades() {
+
+            let current_blade = document.getElementById('blade_boost').value;
+            blades.push(1 + current_blade / 100);
+            var ul = document.getElementById("blades_list");
+            var li = document.createElement("li");
+            li.appendChild(document.createTextNode("+" + current_blade + "%"));
+            li.setAttribute("id", "blade" + blade_counter); // added line
+            blades_id.push("blade" + blade_counter);
+            li.setAttribute("class", "list-group-item");
+            ul.appendChild(li);
+            blade_counter += 1;
+        }
+
+        function add_traps() {
+            let current_trap = document.getElementById('trap_boost').value;
+            traps.push(1 + current_trap / 100);
+
+            var ul = document.getElementById("traps_list");
+            var li = document.createElement("li");
+
+            li.appendChild(document.createTextNode("+" + current_trap + "%"));
+            li.setAttribute("id", "trap" + trap_counter); // added line
+            traps_id.push("trap" + trap_counter)
+            li.setAttribute("class", "list-group-item")
+            ul.appendChild(li);
+
+            trap_counter += 1;
+        }
+
+
+        function calculateDamage() {
+            var card_damage_min = document.getElementById('card_damage_min').value;
+            var card_damage_max = document.getElementById('card_damage_max').value;
+            select_school_boost();
+
+            //Multiplying by wizard percentage boost
+            card_damage_min *= school_boost;
+            card_damage_max *= school_boost;
+
+            for (let i = 0; i < blades.length; i++) {
+                card_damage_min *= blades[i];
+                card_damage_max *= blades[i];
+            }
+            //personal Aura
+            let personal_aura = document.getElementById('aura_damage').value / 100;
+            personal_aura += 1;
+
+            card_damage_min *= personal_aura;
+            card_damage_max *= personal_aura;
+
+            //global Aura
+            let global_aura = document.getElementById('global_aura').value / 100;
+            global_aura += 1;
+            card_damage_min *= global_aura;
+            card_damage_max *= global_aura;
+
+            // get personal boost and global boost into calculations
+            for (let i = 0; i < traps.length; i++) {
+                card_damage_min *= traps[i];
+                card_damage_max *= traps[i];
+            }
+
+            //Adding wizard flat boost
+            card_damage_min += parseInt(school_flat, 10);
+            card_damage_max += parseInt(school_flat, 10);
+
+            //return final values to card damage inputs 
+
+
+            document.getElementById('min_damage').value = card_damage_min;
+            document.getElementById('max_damage').value = card_damage_max;
+        }
+        // console.log(card_damage_min * (1 + wizard_boost / 100) * (1 + blade_boost / 100 * (1 + trap_boost / 100)));
+        // console.log(card_damage_max * (1 + wizard_boost / 100) * (1 + blade_boost / 100 * (1 + trap_boost / 100)));
+        // console.log("Here");
+        function removeBlades() {
+            for (let i = 0; i < blades_id.length; i++) {
+                var element = document.getElementById(blades_id[i]);
+                element.parentNode.removeChild(element);
+            }
+            blades = [];
+            blades_id=[];
+
+        }
+        function removeTraps() {
+            for (let i = 0; i < traps_id.length; i++) {
+                var element = document.getElementById(traps_id[i]);
+                element.parentNode.removeChild(element);
+            }
+            traps_id=[];
+            traps = [];
+
+        }
+        function runTest() {
+            removeBlades();
+            removeTraps();
+        }
+        function resetForm()
+        {
+
+        }
+
+
+
+    </script>
+</body>
+<footer>
+
+</footer>
+
+</html>
